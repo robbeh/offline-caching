@@ -1,9 +1,10 @@
 function getJobs() {
 	$.getJSON('jobs.php', function(data) {
-		$.each(data, function(key, value) {
-
-			buildJobList(key, value);
-			buildHiddenPages(key, value);
+		$.each(data, function(i, property) {
+			console.log(i);
+			console.log(property.property);
+			buildJobList(i, property.property);
+			buildHiddenPages(i, property.property, property.contract);
 		});
 	});
 }
@@ -14,11 +15,10 @@ function buildJobList(key, value) {
 		);
 }
 
-function buildHiddenPages(key, value) {
+function buildHiddenPages(key, value, value2) {
 	if (!$('#hidden_'+key).length) {
 		$("#jobs").append(
-			'<div id=hidden_'+key+' style="display: none;">Job: '+value+'</div>'
-		);
+			'<div id=hidden_'+key+' style="display: none;">Job: '+value+'<br/><div class="'+value2+'">Contract: '+value2+'</div></div>');
 	}
 }
 
@@ -26,7 +26,8 @@ function toggleJob(divId) {
 	hideAllJobs();
 	toggleJobList();
 	toggleBackButton();
-	$("#hidden_"+divId).show();
+	$("#hidden_"+divId).toggle();
+	$("#hidden_"+divId).children('div').toggle();
 }
 
 function returnToJobs() {
