@@ -1,6 +1,7 @@
 function getJobs() {
 	$.getJSON('jobs.php', function(data) {
 		$.each(data, function(key, value) {
+
 			buildJobList(key, value);
 			buildHiddenPages(key, value);
 		});
@@ -23,7 +24,23 @@ function buildHiddenPages(key, value) {
 
 function toggleJob(divId) {
 	hideAllJobs();
+	toggleJobList();
+	toggleBackButton();
 	$("#hidden_"+divId).show();
+}
+
+function returnToJobs() {
+	toggleBackButton();
+	hideAllJobs();
+	toggleJobList();
+}
+
+function toggleBackButton() {
+	$("#back").toggle();
+}
+
+function toggleJobList() {
+	$("#jobList").toggle();
 }
 
 function hideAllJobs() {
