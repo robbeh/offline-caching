@@ -8,6 +8,7 @@ $(document).ready(function () {//debugger;
 	//$(document.body).bind("online", checkNetworkStatus);
 	//$(document.body).bind("offline", checkNetworkStatus);
 	checkNetworkStatus();
+
 });
 
 function checkNetworkStatus() {
@@ -41,10 +42,13 @@ function checkNetworkStatus() {
 function showNetworkStatus(online) {
 	if (online) {
 		$("#online_status").html("Online");
-		setTimeout(function() {checkNetworkStatus();}, 2000);
+		setTimeout(function() {checkNetworkStatus();}, 60000);
+		clearJobList();
+		clearJobs();
+		getJobs();
 	}
 	else {
 		$("#online_status").html("Offline");
-		setTimeout(function() {checkNetworkStatus();}, 2000);
+		setTimeout(function() {checkNetworkStatus();}, 10000);
 	}
 }
