@@ -8,15 +8,17 @@ function getJobs() {
 }
 
 function buildJobList(key, value) {
-	$("#jobList").append(
-		'<div id='+key+'><a href="#" onclick="toggleJob(\''+key+'\');">'+value+'</a></div>'
-	);
+		$("#jobList").append(
+			'<div id='+key+'><a href="#" onclick="toggleJob(\''+key+'\');">'+value+'</a></div>'
+		);
 }
 
 function buildHiddenPages(key, value) {
-	$("#jobs").append(
-		'<div id=hidden_'+key+' style="display: none;">Job: '+value+'</div>'
-	);
+	if (!$('#hidden_'+key).length) {
+		$("#jobs").append(
+			'<div id=hidden_'+key+' style="display: none;">Job: '+value+'</div>'
+		);
+	}
 }
 
 function toggleJob(divId) {
@@ -33,7 +35,7 @@ function hideAllJobs() {
 function clearJobList() {
 	$('#jobList').empty();
 }
-
-function clearJobs() {
-	$('#jobs').empty();
-}
+//
+//function clearJobs() {
+//	$('#jobs').empty();
+//}

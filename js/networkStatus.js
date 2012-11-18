@@ -44,7 +44,6 @@ function showNetworkStatus(online) {
 		$("#online_status").html("Online");
 		setTimeout(function() {checkNetworkStatus();}, 60000);
 		clearJobList();
-		clearJobs();
 		getJobs();
 	}
 	else {
