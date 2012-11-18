@@ -13,10 +13,8 @@ $(document).ready(function () {//debugger;
 
 function checkNetworkStatus() {
 	if (navigator.onLine) {
-		// Just because the browser says we're online doesn't mean we're online. The browser lies.
-		// Check to see if we are really online by making a call for a static JSON resource on
-		// the originating Web site. If we can get to it, we're online. If not, assume we're
-		// offline.
+		// May not be true all of the time so we can do a fool proof get request
+		// to double check we are online.
 		$.ajaxSetup({
 			async: true,
 			cache: false,
