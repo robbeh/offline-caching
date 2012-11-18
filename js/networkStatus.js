@@ -3,14 +3,6 @@
  * Date: 18/11/12
  * Time: 12:06
  */
-
-$(document).ready(function () {//debugger;
-	//$(document.body).bind("online", checkNetworkStatus);
-	//$(document.body).bind("offline", checkNetworkStatus);
-	checkNetworkStatus();
-
-});
-
 function checkNetworkStatus() {
 	if (navigator.onLine) {
 		// May not be true all of the time so we can do a fool proof get request
